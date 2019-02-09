@@ -8,5 +8,4 @@ https://github.com/trashvin/watch-my-budget-app
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AngularMongoStitch';
 }
