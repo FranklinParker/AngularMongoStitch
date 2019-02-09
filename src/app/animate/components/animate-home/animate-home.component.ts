@@ -52,7 +52,7 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
           animate(500,
             style({
               backgroundColor: 'red',
-
+              transform: 'scale(1.05)'
             })),
           animate(1000)
         ]
