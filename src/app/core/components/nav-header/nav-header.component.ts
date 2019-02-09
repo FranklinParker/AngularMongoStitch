@@ -17,7 +17,7 @@ export class NavHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loggedInUser = false;
+    this.loggedInUser = true;
   }
 
   onToggle() {

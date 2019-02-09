@@ -42,7 +42,7 @@ export class StitchService {
   }
 
   private initialize() {
-    this.client = Stitch.initializeDefaultAppClient('');
+    this.client = Stitch.initializeDefaultAppClient('teststitch-fewbq');
     this.client.auth.loginWithCredential(new AnonymousCredential())
       .then(user => {
         console.log('logged in');
