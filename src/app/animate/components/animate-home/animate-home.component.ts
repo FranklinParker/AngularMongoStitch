@@ -43,8 +43,24 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
         backgroundColor: 'black',
         color: 'white'
       })),
-      transition('unselected <=> selected',
-        animate(1000))
+      transition('unselected => selected', [
+          style({
+            border: '1px solid black',
+            padding: '5px',
+            margin: '3px',
+          }),
+          animate(1000)
+        ]
+      ),
+      transition('selected => unselected', [
+          style({
+            border: '1px solid blue',
+            padding: '5px',
+            margin: '3px',
+          }),
+          animate(500)
+        ]
+      )
     ])
 
   ]
