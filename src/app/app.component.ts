@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {StitchService} from './core/services/stitch.service';
+
 /*
 https://github.com/trashvin/watch-my-budget-app
  */
@@ -8,4 +10,8 @@ https://github.com/trashvin/watch-my-budget-app
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private stitchService: StitchService) {
+    this.stitchService.test();
+  }
 }
