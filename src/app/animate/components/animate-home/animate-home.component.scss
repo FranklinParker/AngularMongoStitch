@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 3px 3px 2px #ccc;
+  margin: 8px;
+  padding: 20px;
+  transition: border-color .7s ease-out;
+}
+
+#simple{
+  background-color: orange;
+  height: 100px;
+  width: 100px;
+}
