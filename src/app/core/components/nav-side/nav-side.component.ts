@@ -7,12 +7,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavSideComponent implements OnInit {
   @Output() closeSideNav = new EventEmitter();
-  loggedInUser: boolean;
+  loggedInUser: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
-    this.loggedInUser = false;
   }
 
   onSidenavClose() {
