@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {trigger, state,style} from '@angular/animations';
+import {Component, OnInit} from '@angular/core';
+import {trigger, state, style, transition, animate} from '@angular/animations';
 
 @Component({
   selector: 'app-animate-home',
@@ -16,16 +16,34 @@ import {trigger, state,style} from '@angular/animations';
         backgroundColor: 'blue',
         width: '300px',
         height: '50px'
-      }))
+      })),
+      state('mousedown', style({
+        backgroundColor: 'red',
+        width: '100px',
+        height: '100px'
+      })),
+      transition('default => clicked',
+        animate('200ms 1000ms ease-in')),
+      transition('clicked => default',
+        animate('900ms 100ms ease-in'))
     ])
 
   ]
 })
 export class AnimateHomeComponent implements OnInit {
+  clickInfo = 'default';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  onClickInfo() {
+    this.clickInfo = 'clicked';
+    setTimeout(() => {
+      this.clickInfo = 'default';
+    }, 3000);
   }
 
 }

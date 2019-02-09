@@ -5,7 +5,10 @@
     </p>
   </mat-card-header>
   <mat-card-content>
-    <div [@clickedState]="'default'"></div>
+    <div [@clickedState]="clickInfo"
+         (click)="onClickInfo()"
+    (mousedown)="clickInfo='mousedown'">
+    </div>
 
   </mat-card-content>
 </mat-card>
