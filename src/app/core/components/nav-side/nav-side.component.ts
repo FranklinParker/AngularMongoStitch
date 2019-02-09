@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavSideComponent implements OnInit {
   @Output() closeSideNav = new EventEmitter();
-  loggedInUser: boolean = false;
+  loggedInUser: boolean = true;
 
   constructor() { }
 
