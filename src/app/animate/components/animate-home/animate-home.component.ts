@@ -37,7 +37,7 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
         color: 'black',
       })),
       state('selected', style({
-        border: '1px solid blue',
+        border: '2px solid red',
         margin: '3px',
         padding: '5px',
         backgroundColor: 'black',
@@ -45,11 +45,17 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
       })),
       transition('unselected => selected', [
           style({
-            border: '1px solid black',
+            border: '2px solid black',
             padding: '5px',
             margin: '3px',
           }),
-          animate(1000)
+          animate(1000),
+          style({
+            backgroundColor: 'red',
+            padding: '5px',
+            margin: '3px',
+          }),
+          animate(2000)
         ]
       ),
       transition('selected => unselected', [
