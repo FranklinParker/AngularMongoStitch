@@ -25,9 +25,26 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
       transition('default => clicked',
         animate('200ms 1000ms ease-in')),
       transition('clicked => default',
-        animate('900ms 100ms ease-in')),
+        animate('900ms 100ms ease-out')),
       transition('mousedown <=> clicked',
         animate(300))
+    ]),
+    trigger('numberSelectedState', [
+      state('unselected', style({
+        border: '1px solid black',
+        padding: '5px',
+        margin: '3px',
+        color: 'black',
+      })),
+      state('selected', style({
+        border: '1px solid blue',
+        margin: '3px',
+        padding: '5px',
+        backgroundColor: 'black',
+        color: 'white'
+      })),
+      transition('unselected <=> selected',
+        animate(1000))
     ])
 
   ]
@@ -35,6 +52,7 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
 export class AnimateHomeComponent implements OnInit {
   clickInfo = 'default';
   paragraphClicked = 'default';
+  numberEntered: string;
 
   constructor() {
   }

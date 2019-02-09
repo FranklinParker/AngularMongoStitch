@@ -11,6 +11,22 @@
     </div>
     <p [@clickedState]="paragraphClicked"
        (click)="paragraphClicked='clicked'">Some text</p>
+    <hr>
+    <input  type="text"
+           (input)="numberEntered = $event.target.value">
+    <div class="number-div">
+      <span [@numberSelectedState]="numberEntered==1? 'selected' : 'unselected'">1</span>
+      <span [@numberSelectedState]="numberEntered==2? 'selected' : 'unselected'">2</span>
+      <span [@numberSelectedState]="numberEntered==3? 'selected' : 'unselected'">3</span>
+      <span [@numberSelectedState]="numberEntered==4? 'selected' : 'unselected'">4</span>
+
+    </div>
+
+
+
+
+
+
 
   </mat-card-content>
 </mat-card>
