@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
     <p>
-      animate-home works!
+      animaaphte-home works!
     </p>
   </mat-card-header>
   <mat-card-content>
@@ -9,6 +9,8 @@
          (click)="onClickInfo()"
     (mousedown)="clickInfo='mousedown'">
     </div>
+    <p [@clickedState]="paragraphClicked"
+       (click)="paragraphClicked='clicked'">Some text</p>
 
   </mat-card-content>
 </mat-card>

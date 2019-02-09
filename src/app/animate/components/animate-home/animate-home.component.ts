@@ -25,13 +25,16 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
       transition('default => clicked',
         animate('200ms 1000ms ease-in')),
       transition('clicked => default',
-        animate('900ms 100ms ease-in'))
+        animate('900ms 100ms ease-in')),
+      transition('mousedown <=> clicked',
+        animate(300))
     ])
 
   ]
 })
 export class AnimateHomeComponent implements OnInit {
   clickInfo = 'default';
+  paragraphClicked = 'default';
 
   constructor() {
   }
