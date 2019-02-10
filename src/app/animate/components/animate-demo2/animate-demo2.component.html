@@ -2,7 +2,7 @@
   <mat-card-content>
     <button (click)="onClick()">Show/hide</button>
     <p *ngIf="shown"
-      [@shownState]="shown? 'shown':'notShown'">
+      @shownState>
       now you see me
     </p>
 

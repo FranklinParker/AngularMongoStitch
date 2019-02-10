@@ -7,15 +7,12 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./animate-demo2.component.scss'],
   animations: [
     trigger('shownState', [
-      state('shown', style({
-        backgroundColor: 'gray',
-      })),
-      transition('void => shown', [
+      transition(':enter', [
           style({opacity: 0}),
-          animate(800)
+          animate(2000)
         ]
       ),
-      transition('shown => void',
+      transition(':leave',
 
         animate(800, style({opacity: 0}))
       ),
