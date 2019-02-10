@@ -16,7 +16,9 @@
     <button (click)="onAddElement()">Add Element</button>
     <div
       *ngFor="let testResult of testResults"
-      @showState
+      @listState
+      (@listState.start)="onAnimationStarted($event)"
+      (@listState.done)="onAnimationDone($event)"
       class="test-result">{{ testResult }}</div>
 
   </mat-card-content>

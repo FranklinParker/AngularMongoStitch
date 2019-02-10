@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {showStateTrigger, animateStateTrigger} from '../../animation/animationTriggers';
+import {showStateTrigger, animateStateTrigger, listStateTrigger} from '../../animation/animationTriggers';
 
 @Component({
   selector: 'app-animate-demo2',
@@ -8,7 +8,8 @@ import {showStateTrigger, animateStateTrigger} from '../../animation/animationTr
   styleUrls: ['./animate-demo2.component.scss'],
   animations: [
     showStateTrigger,
-    animateStateTrigger
+    animateStateTrigger,
+    listStateTrigger
   ]
 })
 export class AnimateDemo2Component implements OnInit {
@@ -28,6 +29,15 @@ export class AnimateDemo2Component implements OnInit {
 
   onClick() {
     this.shown = !this.shown;
+  }
+
+
+  onAnimationStarted(event: AnimationEvent) {
+    console.log(event);
+  }
+
+  onAnimationDone(event: AnimationEvent) {
+    console.log(event);
   }
 
 }
