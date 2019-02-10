@@ -1,33 +1,12 @@
 <mat-card>
-  <mat-card-header>
-    <p>
-      Animate demo
-    </p>
-  </mat-card-header>
+
   <mat-card-content>
-    <div [@clickedState]="clickInfo"
-         (click)="onClickInfo()"
-    (mousedown)="clickInfo='mousedown'">
-    </div>
-    <p [@clickedState]="paragraphClicked"
-       (click)="paragraphClicked='clicked'">Some text</p>
-    <hr>
-    <input  type="text"
-           (input)="numberEntered = $event.target.value">
-    <div class="number-div">
-      <span [@numberSelectedState]="numberEntered==1? 'selected' : 'unselected'">1</span>
-      <span [@numberSelectedState]="numberEntered==2? 'selected' : 'unselected'">2</span>
-      <span [@numberSelectedState]="numberEntered==3? 'selected' : 'unselected'">3</span>
-      <span [@numberSelectedState]="numberEntered==4? 'selected' : 'unselected'">4</span>
-
-    </div>
-
-
-
-
-
-
-
+    <mat-tab-group>
+      <mat-tab label="Animate Demo 1">
+        <app-animate-demo1></app-animate-demo1>
+      </mat-tab>
+      <mat-tab label="Animate Demo 2"> Content 2 </mat-tab>
+    </mat-tab-group>
   </mat-card-content>
 </mat-card>
 
