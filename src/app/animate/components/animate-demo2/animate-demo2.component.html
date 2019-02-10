@@ -2,9 +2,15 @@
   <mat-card-content>
     <button (click)="onClick()">Show/hide</button>
     <p *ngIf="shown"
-      @shownState>
+      @showState>
       now you see me
     </p>
-
+    <br>
+    <button (click)="width = width - 50">Shrink</button>
+    <button (click)="animate = true">Animate me</button>
+    <p
+      [@animateState]="animate ? 'animated' : 'noAnimation'"
+      [ngStyle]="{'width.px': width}">Shrink me</p>
+    <hr>
   </mat-card-content>
 </mat-card>
