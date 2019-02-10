@@ -1,3 +1,10 @@
-<p>
-  animate-demo2 works!
-</p>
+<mat-card>
+  <mat-card-content>
+    <button (click)="onClick()">Show/hide</button>
+    <p *ngIf="shown"
+      [@shownState]="shown? 'shown':'notShown'">
+      now you see me
+    </p>
+
+  </mat-card-content>
+</mat-card>
