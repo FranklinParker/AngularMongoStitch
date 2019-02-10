@@ -15,7 +15,11 @@ export class AnimateDemo2Component implements OnInit {
   shown = false;
   width = 400;
   animate = false;
+  testResults = [];
 
+  onAddElement() {
+    this.testResults.push(Math.random());
+  }
   constructor() {
   }
 
