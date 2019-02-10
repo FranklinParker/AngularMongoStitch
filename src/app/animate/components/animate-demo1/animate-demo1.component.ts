@@ -14,11 +14,11 @@ export class AnimateDemo1Component implements OnInit {
   clickInfo = 'default';
   paragraphClicked = 'default';
   numberEntered: string;
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
 
   onClickInfo() {
     this.clickInfo = 'clicked';

@@ -1,7 +1,7 @@
 <mat-card>
 <mat-card-header>
   <p>
-    Animate demo
+    Animate demo {{clickInfo}} - {{paragraphClicked}} - {{numberEntered}}
   </p>
 </mat-card-header>
 <mat-card-content>
@@ -21,13 +21,6 @@
     <span [@numberSelectedState]="numberEntered==4? 'selected' : 'unselected'">4</span>
 
   </div>
-
-
-
-
-
-
-
 </mat-card-content>
 </mat-card>
 
