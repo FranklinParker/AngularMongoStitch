@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'animate',
     component: AnimateHomeComponent
+  },
+  {
+    path: 'messages',
+    loadChildren: './messages/messages.module#MessagesModule'
   }
 ];
 

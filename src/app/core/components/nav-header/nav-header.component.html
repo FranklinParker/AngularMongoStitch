@@ -23,19 +23,22 @@
              routerLinkActive="mat-accent">Register</a>
       </li>
     </ul>
-    <ul *ngIf="loggedInUser" fxLayout fxLayoutGap="10px" class="navigation-list-items">
-      <li><a routerLink="/business/contact" mat-button
-             routerLinkActive="mat-accent">Business Contact</a>
-      </li>
-    </ul>
-    <ul *ngIf="loggedInUser" fxLayout fxLayoutGap="10px" class="navigation-list-items">
-      <li><a routerLink="/animate" mat-button
-             routerLinkActive="mat-accent">Animate</a>
-      </li>
-    </ul>
-    <ul *ngIf="loggedInUser" fxLayout fxLayoutGap="10px" class="navigation-list-items">
-      <li><a mat-stroked-button (click)="onLogout()">Logout</a>
-      </li>
-    </ul>
+    <ng-container *ngIf="loggedInUser">
+      <ul fxLayout fxLayoutGap="10px" class="navigation-list-items">
+        <li><a routerLink="/messages" mat-button
+               routerLinkActive="mat-accent">Messages</a>
+        </li>
+      </ul>
+      <ul fxLayout fxLayoutGap="10px" class="navigation-list-items">
+        <li><a routerLink="/animate" mat-button
+               routerLinkActive="mat-accent">Animate</a>
+        </li>
+      </ul>
+      <ul fxLayout fxLayoutGap="10px" class="navigation-list-items">
+        <li><a mat-stroked-button (click)="onLogout()">Logout</a>
+        </li>
+      </ul>
+    </ng-container>
+
   </div>
 </mat-toolbar>
