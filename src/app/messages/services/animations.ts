@@ -13,11 +13,13 @@ export const markedTrigger = trigger('markedState', [
   state('default', style({
     border: '1px solid black',
     backgroundColor: 'transparent',
+    boxShadow: '3px 3px 2px #ccc',
     padding: '20px'
   })),
   state('marked', style({
     border: '2px solid blue',
     backgroundColor: '#e8ebef',
+    boxShadow: '3px 3px 2px #ccc',
     padding: '19px'
   })),
   transition('default => marked', [
