@@ -13,7 +13,9 @@
   </mat-card-content>
 </mat-card>
 <div [@listState]="messages?.length">
-  <app-messages-item *ngFor="let message of messages"
-                     [message]="message">
+  <app-messages-item (click)="onSelectMessage(message)"
+    [@markedState]="message.id ===selectedMessage?.id ?'marked': 'default'"
+    *ngFor="let message of messages"
+    [message]="message">
   </app-messages-item>
 </div>
