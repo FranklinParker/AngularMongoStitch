@@ -48,11 +48,17 @@ export class MessageService {
    */
   public async saveMessage(message: Message) {
     try {
+      const messageToSave =
+        Object.assign({}, {message: message.message, creator: message.creator});
       const saved = await this.mongoDb.db('chat')
-        .collection('messages').insertOne(message);
+        .collection('messages').insertOne(messageToSave);
 
       console.log('messages', saved);
-      return saved;
+      return {
+        id: saved.insertedId.toString(),
+        message: message.message,
+        creator: message.creator
+      };
     } catch (err) {
       console.log(err);
     }

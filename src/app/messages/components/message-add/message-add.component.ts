@@ -23,7 +23,8 @@ export class MessageAddComponent implements OnInit {
   }
 
   async onSubmit(form: NgForm) {
-    await this.messageService.saveMessage(this.message);
+    const savedMessage = await this.messageService.saveMessage(this.message);
+    console.log('savedMessage:', savedMessage);
   }
 
 }
