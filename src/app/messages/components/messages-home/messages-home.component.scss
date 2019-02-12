@@ -6,3 +6,29 @@
   padding: 20px;
   transition: border-color .7s ease-out;
 }
+
+app-messages-item{
+  margin: 3px;
+}
+
+mat-card{
+  margin: 3px;
+  border-radius: 4px;
+  color: white;
+  background-color: black;
+}
+
+mat-card-content{
+  color: white;
+  background-color: black;
+}
+
+p{
+  display: inline-block;
+  margin: 4px;
+}
+
+.div-row{
+  width: 90%;
+}
+

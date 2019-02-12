@@ -1,6 +1,14 @@
 <mat-card>
-  <mat-card-content>
-    <p>{{message.creator}} </p>
-    <p>{{message.message}} </p>
+  <mat-card-content fxLayout="column"
+                    fxLayoutAlign="center center"
+                    fxLayoutGap="5px">
+    <div class="div-row"
+         fxLayout="row"
+         fxLayoutWrap
+         fxLayoutAlign="center center"
+         fxLayoutGap="10px">
+      <p fxFlex="20%">{{message.creator}} </p>
+      <p fxFlex="80%">{{message.message}} </p>
+    </div>
   </mat-card-content>
 </mat-card>
