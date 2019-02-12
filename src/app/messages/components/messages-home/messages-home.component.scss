@@ -37,3 +37,12 @@ div{
   display: block;
 }
 
+
+mat-expansion-panel-header{
+  background-color: #bababa !important;
+}
+
+mat-expansion-panel-header:hover{
+  background-color: blue !important;
+  color: white !important;
+}

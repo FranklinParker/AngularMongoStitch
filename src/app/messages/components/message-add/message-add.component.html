@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-content>
+    <ng-container *ngIf="!isSaving">
+      <form (submit)="onSubmit(form)"
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            fxLayoutGap="5px"
+            #form="ngForm">
+
+        <mat-form-field>
+          <input matInput [(ngModel)]="message.message"
+                 name="message"
+                 #messageField="ngModel"
+                 placeholder="Message"
+                 required>
+          <mat-error *ngIf="messageField.invalid">Message Required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="message.creator"
+                 name="creator"
+                 #creatorField="ngModel"
+                 placeholder="Creator"
+                 required>
+          <mat-error *ngIf="creatorField.invalid">Creator Required</mat-error>
+        </mat-form-field>
+
+        <mat-action-row fxLayout="row"
+                        fxLayoutWrap
+                        fxLayoutAlign="center center"
+                        fxLayoutGap="10px">
+          <button mat-raised-button
+                  color="primary"
+                  [disabled]="form.invalid">Save
+          </button>
+        </mat-action-row>
+      </form>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

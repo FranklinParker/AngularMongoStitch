@@ -1,7 +1,17 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      Add Message
+    </mat-expansion-panel-header>
+    <app-message-add></app-message-add>
+  </mat-expansion-panel>
+</mat-accordion>
+
 <mat-card>
   <mat-card-content fxLayout="column"
                     fxLayoutAlign="center center"
                     fxLayoutGap="5px">
+
     <div class="div-row"
          fxLayout="row"
          fxLayoutWrap
@@ -15,8 +25,8 @@
 {{selectedMessage?.id}}
 <div [@listState]="messages?.length">
   <app-messages-item (click)="onSelectMessage(message)"
-    [@markedState]="message === selectedMessage ?'marked': 'default'"
-    *ngFor="let message of messages"
-    [message]="message">
+                     [@markedState]="message === selectedMessage ?'marked': 'default'"
+                     *ngFor="let message of messages"
+                     [message]="message">
   </app-messages-item>
 </div>
