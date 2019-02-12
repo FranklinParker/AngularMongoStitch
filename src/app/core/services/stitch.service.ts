@@ -18,31 +18,8 @@ export class StitchService {
     this.initialize();
   }
 
-  test() {
-    const mongodb = Stitch.defaultAppClient.getServiceClient(
-      RemoteMongoClient.factory,
-      'mongodb-atlas'
-    );
-    mongodb
-      .db('node-angular')
-      .collection('posts')
-      .find()
-      .asArray()
-      .then(posts => {
-        console.log(posts);
-      });
-    mongodb
-      .db('node-angular')
-      .collection('users')
-      .find()
-      .asArray()
-      .then(users => {
-        console.log(users);
-      });
-  }
-
   private initialize() {
-    this.client = Stitch.initializeDefaultAppClient('teststitch-fewbq');
+    this.client = Stitch.initializeDefaultAppClient('messageapp-jnnmi');
     this.client.auth.loginWithCredential(new AnonymousCredential())
       .then(user => {
         console.log('logged in');

@@ -1,3 +1,2 @@
-<p>
-  messages-home works!
-</p>
+<app-messages-item *ngFor="let message of messages"
+                   [message]="message"></app-messages-item>

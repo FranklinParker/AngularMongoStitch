@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StitchService} from './core/services/stitch.service';
 
 /*
@@ -9,9 +9,13 @@ https://github.com/trashvin/watch-my-budget-app
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   constructor(private stitchService: StitchService) {
-    this.stitchService.test();
+
   }
+
+  ngOnInit(): void {
+  }
+
 }
