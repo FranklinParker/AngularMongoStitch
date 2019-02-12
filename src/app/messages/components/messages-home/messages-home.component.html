@@ -12,6 +12,8 @@
     </div>
   </mat-card-content>
 </mat-card>
-
-<app-messages-item *ngFor="let message of messages"
-                   [message]="message"></app-messages-item>
+<div [@listState]="messages?.length">
+  <app-messages-item *ngFor="let message of messages"
+                     [message]="message">
+  </app-messages-item>
+</div>
