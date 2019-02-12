@@ -19,7 +19,7 @@ export class StitchService {
   }
 
   private initialize() {
-    this.client = Stitch.initializeDefaultAppClient('messageapp-jnnmi');
+    this.client = Stitch.initializeDefaultAppClient('remove-id');
     this.client.auth.loginWithCredential(new AnonymousCredential())
       .then(user => {
         console.log('logged in');
