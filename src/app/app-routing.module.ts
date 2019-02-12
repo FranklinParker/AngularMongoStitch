@@ -12,13 +12,13 @@ const routes: Routes = [
   {
     path: 'animate',
     component: AnimateHomeComponent,
-    data: {animation: {page: 'rootPage'}}
+    data: {animation: {page: 'animatePage'}}
 
   },
   {
     path: 'messages',
     loadChildren: './messages/messages.module#MessagesModule',
-    data: {animation: {page: 'userPage'}}
+    data: {animation: {page: 'messagePage'}}
 
   }
 ];
