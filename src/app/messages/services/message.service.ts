@@ -33,7 +33,6 @@ export class MessageService {
         transformedMessages.push(transformedMessage);
       });
 
-      console.log('messages', transformedMessages);
       return messages;
     } catch (err) {
       console.log(err);
@@ -52,8 +51,6 @@ export class MessageService {
         Object.assign({}, {message: message.message, creator: message.creator});
       const saved = await this.mongoDb.db('chat')
         .collection('messages').insertOne(messageToSave);
-
-      console.log('messages', saved);
       return {
         id: saved.insertedId.toString(),
         message: message.message,

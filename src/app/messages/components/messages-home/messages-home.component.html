@@ -3,7 +3,7 @@
     <mat-expansion-panel-header>
       Add Message
     </mat-expansion-panel-header>
-    <app-message-add></app-message-add>
+    <app-message-add (newMessageSaved)="onNewMessageSaved($event)"></app-message-add>
   </mat-expansion-panel>
 </mat-accordion>
 

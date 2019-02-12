@@ -18,7 +18,7 @@ import {
   ]
 })
 export class MessagesHomeComponent implements OnInit {
-  messages: Message[];
+  messages: Message[] = [];
   selectedMessage: Message;
 
   constructor(private messageService: MessageService) {
@@ -30,6 +30,10 @@ export class MessagesHomeComponent implements OnInit {
 
   onSelectMessage(message: Message) {
     this.selectedMessage = message;
+  }
+
+  onNewMessageSaved(message: Message) {
+    this.messages.unshift(message);
   }
 
 }
