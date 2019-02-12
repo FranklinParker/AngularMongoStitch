@@ -12,7 +12,7 @@ import {itemStateTrigger} from '../../services/animations';
   ]
 })
 export class MessagesHomeComponent implements OnInit {
-  messages: Message[] = [];
+  messages: Message[];
   constructor(private messageService: MessageService) { }
 
   async ngOnInit() {
