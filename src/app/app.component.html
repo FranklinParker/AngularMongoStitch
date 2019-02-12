@@ -4,8 +4,8 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-nav-header (sidebarToggle)="sideNav.toggle()"></app-nav-header>
-    <main>
-      <router-outlet></router-outlet>
+    <main [@routeState]="getAnimationData(rOutlet)" style="overflow: hidden">
+      <router-outlet #rOutlet="outlet"></router-outlet>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -6,15 +6,20 @@ import {AnimateHomeComponent} from './animate/components/animate-home/animate-ho
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {animation: {page: 'rootPage'}}
   },
   {
     path: 'animate',
-    component: AnimateHomeComponent
+    component: AnimateHomeComponent,
+    data: {animation: {page: 'rootPage'}}
+
   },
   {
     path: 'messages',
-    loadChildren: './messages/messages.module#MessagesModule'
+    loadChildren: './messages/messages.module#MessagesModule',
+    data: {animation: {page: 'userPage'}}
+
   }
 ];
 
