@@ -103,9 +103,8 @@ export const listStateTrigger = trigger('listState', [
       stagger(300, [
         animate('700ms ease-out', keyframes([
           style({
-            opacity: 1,
-            color: 'red',
-            transform: 'translateX(1%)',
+            opacity: .5,
+            transform: 'translateX(2%)',
             offset: 0.8
           }),
           style({
