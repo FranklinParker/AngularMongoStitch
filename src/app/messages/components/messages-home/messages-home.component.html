@@ -22,7 +22,6 @@
     </div>
   </mat-card-content>
 </mat-card>
-{{selectedMessage?.id}}
 <div [@listState]="messages?.length">
   <app-messages-item (click)="onSelectMessage(message)"
                      [@markedState]="message === selectedMessage ?'marked': 'default'"
