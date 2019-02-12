@@ -17,7 +17,7 @@ export const markedTrigger = trigger('markedState', [
   })),
   state('marked', style({
     border: '2px solid blue',
-    backgroundColor: '#caeff9',
+    backgroundColor: 'transparent',
     padding: '19px'
   })),
   transition('default => marked', [
@@ -26,7 +26,7 @@ export const markedTrigger = trigger('markedState', [
       padding: '19px'
     }),
     animate('200ms ease-out', style({
-      transform: 'scale(1.05)'
+      transform: 'scale(1.02)'
     })),
     animate(200)
   ]),

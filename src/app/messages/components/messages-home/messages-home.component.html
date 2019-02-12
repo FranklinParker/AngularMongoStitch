@@ -12,9 +12,10 @@
     </div>
   </mat-card-content>
 </mat-card>
+{{selectedMessage?.id}}
 <div [@listState]="messages?.length">
   <app-messages-item (click)="onSelectMessage(message)"
-    [@markedState]="message.id ===selectedMessage?.id ?'marked': 'default'"
+    [@markedState]="message === selectedMessage ?'marked': 'default'"
     *ngFor="let message of messages"
     [message]="message">
   </app-messages-item>
