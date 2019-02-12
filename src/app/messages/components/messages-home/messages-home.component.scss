@@ -11,16 +11,21 @@ app-messages-item{
   margin: 5px;
 }
 
+
+app-messages-item:hover{
+  background-color: rgba(211, 211, 211, 0.13) !important;
+}
+
+
 mat-card{
   margin: 3px;
   border-radius: 4px;
   color: white;
   background-color: black;
 }
+mat-card:hover{
+  background-color: green !important;
 
-mat-card-content{
-  color: white;
-  background-color: black;
 }
 
 p{
@@ -31,7 +36,9 @@ p{
 .div-row{
   width: 90%;
   display: block;
+
 }
+
 
 div{
   display: block;

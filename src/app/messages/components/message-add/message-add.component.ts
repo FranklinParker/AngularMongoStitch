@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Message} from '../../models/message';
 import {NgForm} from '@angular/forms';
+import {MessageService} from '../../services/message.service';
 
 @Component({
   selector: 'app-message-add',
@@ -15,13 +16,14 @@ export class MessageAddComponent implements OnInit {
   };
   isSaving = false;
 
-  constructor() {
+  constructor(private messageService: MessageService) {
   }
 
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm) {
+  async onSubmit(form: NgForm) {
+    await this.messageService.saveMessage(this.message);
   }
 
 }

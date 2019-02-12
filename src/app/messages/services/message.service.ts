@@ -15,7 +15,11 @@ export class MessageService {
     );
   }
 
-  async getMessages(): Promise<Message[]> {
+  /**
+   * get all messages
+   *
+   */
+  public async getMessages(): Promise<Message[]> {
     try {
       const messages = await this.mongoDb.db('chat')
         .collection('messages').find().asArray();
@@ -25,7 +29,7 @@ export class MessageService {
           id: message._id.toString(),
           message: message.message,
           creator: message.creator
-        }
+        };
         transformedMessages.push(transformedMessage);
       });
 
@@ -35,4 +39,24 @@ export class MessageService {
       console.log(err);
     }
   }
+
+  /**
+   * save new message
+   *
+   *
+   * @param message message
+   */
+  public async saveMessage(message: Message) {
+    try {
+      const saved = await this.mongoDb.db('chat')
+        .collection('messages').insertOne(message);
+
+      console.log('messages', saved);
+      return saved;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
 }
