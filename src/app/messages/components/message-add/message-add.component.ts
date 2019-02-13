@@ -27,7 +27,7 @@ export class MessageAddComponent implements OnInit {
 
   async onSubmit(form: NgForm) {
     this.isSaving = true;
-    const savedMessage: Message = await this.messageService.saveMessage(this.message);
+    const savedMessage: Message = await this.messageService.createNewMessage(this.message);
     this.newMessageSaved.emit(savedMessage);
     this.isSaving = false;
     this.snackBar.open('New Message saved', '', {
