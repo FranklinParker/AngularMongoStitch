@@ -29,6 +29,9 @@
                         fxLayoutAlign="center center"
                         fxLayoutGap="10px">
           <button mat-raised-button
+                  (mouseenter)="saveButtonOver=true"
+                  (mouseleave)="saveButtonOver=false"
+                  [@buttonOverState]="saveButtonOver? 'over':'outside'"
                   color="primary"
                   [disabled]="form.invalid">Save
           </button>

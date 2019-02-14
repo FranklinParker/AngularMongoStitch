@@ -3,11 +3,15 @@ import {Message} from '../../models/message';
 import {NgForm} from '@angular/forms';
 import {MessageService} from '../../services/message.service';
 import {MatSnackBar} from '@angular/material';
+import {buttonOverTrigger} from '../../services/animations';
 
 @Component({
   selector: 'app-message-add',
   templateUrl: './message-add.component.html',
-  styleUrls: ['./message-add.component.scss']
+  styleUrls: ['./message-add.component.scss'],
+  animations: [
+    buttonOverTrigger
+  ]
 })
 export class MessageAddComponent implements OnInit {
   message: Message = {
@@ -16,6 +20,7 @@ export class MessageAddComponent implements OnInit {
     creator: undefined
   };
   isSaving = false;
+  saveButtonOver = false;
   @Output() newMessageSaved = new EventEmitter<Message>();
 
   constructor(private messageService: MessageService,
@@ -30,7 +35,7 @@ export class MessageAddComponent implements OnInit {
     const savedMessage: Message = await this.messageService.createNewMessage(this.message);
     this.newMessageSaved.emit(savedMessage);
     this.isSaving = false;
-    this.snackBar.open('New Message saved', '', {
+    this.snackBar.open('New Message Saved', '', {
       duration: 8000
     });
     this.message = {

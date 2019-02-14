@@ -119,3 +119,29 @@ export const listStateTrigger = trigger('listState', [
     ], {optional: true})
   ])
 ]);
+
+export const buttonOverTrigger = trigger('buttonOverState', [
+  state('outside', style({})),
+  state('over', style({
+    transform: 'scale(1.05)',
+    color: 'red'
+  })),
+  transition('outside => over', [
+    animate(500, keyframes([
+      style({
+        transform: 'scale(1.15)',
+        color: 'red',
+        'font-weight': 500,
+        offset: .5
+      }),
+      style({
+        transform: 'scale(1.10)',
+        'font-weight': 300,
+        offset: .7
+      }),
+    ])),
+    transition('over => outside', [
+      animate(5000)
+    ])
+  ])
+]);
