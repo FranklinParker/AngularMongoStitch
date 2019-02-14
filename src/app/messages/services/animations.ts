@@ -141,7 +141,7 @@ export const buttonOverTrigger = trigger('buttonOverState', [
       }),
     ])),
     transition('over => outside', [
-      animate(5000)
+      animate(500)
     ])
   ])
 ]);
