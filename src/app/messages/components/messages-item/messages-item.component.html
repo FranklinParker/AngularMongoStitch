@@ -13,13 +13,16 @@
 
   </div>
 
-  <div class="div-row" *ngIf="message.id===selectedMessageId">
-    <mat-accordion>
-      <mat-expansion-panel>
+  <div class="div-row"
+       *ngIf="message.id===selectedMessageId">
+    <mat-accordion >
+      <mat-expansion-panel >
         <mat-expansion-panel-header>
           Edit
         </mat-expansion-panel-header>
-        <app-message-item-edit></app-message-item-edit>
+        <ng-template matExpansionPanelContent>
+          <app-message-item-edit></app-message-item-edit>
+        </ng-template>
       </mat-expansion-panel>
     </mat-accordion>
   </div>

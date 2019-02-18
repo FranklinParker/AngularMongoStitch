@@ -85,5 +85,18 @@ export class MessageService {
     }
   }
 
+  public async updateMessage(message: Message) {
+    try {
+      const existMessage = await this.mongoDb.db('chat')
+        .collection('messages').find({_id: message.id}).toArray();
+      console.log('found', existMessage);
+      if (existMessage && existMessage['version'] === message.version) {
+        console.log('version match');
+      }
+    } catch (e) {
+      console.log('error updating', e);
+    }
+  }
+
 
 }

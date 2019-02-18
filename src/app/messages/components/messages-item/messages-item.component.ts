@@ -1,5 +1,6 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import { Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
+import * from
 
 import {Message} from '../../models/message';
 import {MessageService} from '../../services/message.service';
@@ -13,6 +14,7 @@ export class MessagesItemComponent implements OnInit, OnDestroy {
   @Input() message: Message;
   selectedMessageId: string;
   subs: Subscription;
+
   constructor(private messageService: MessageService) {
   }
 

@@ -4,11 +4,15 @@ import {Subscription} from 'rxjs';
 
 import {Message} from '../../../models/message';
 import {MessageService} from '../../../services/message.service';
+import {buttonOverTrigger} from '../../../services/animations';
 
 @Component({
   selector: 'app-message-item-edit',
   templateUrl: './message-item-edit.component.html',
-  styleUrls: ['./message-item-edit.component.scss']
+  styleUrls: ['./message-item-edit.component.scss'],
+  animations: [
+    buttonOverTrigger
+  ]
 })
 export class MessageItemEditComponent implements OnInit, OnDestroy {
   message: Message;
@@ -28,8 +32,8 @@ export class MessageItemEditComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  onSubmit(form: NgForm) {
-
+  async onSubmit(form: NgForm) {
+    this.messageService.updateMessage(this.message);
   }
 
 }

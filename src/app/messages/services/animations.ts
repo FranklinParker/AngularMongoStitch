@@ -76,6 +76,7 @@ export const itemStateTrigger = trigger('itemState', [
   ])
 ]);
 
+
 export const slideStateTrigger = trigger('slideState', [
   transition(':enter', [
     style({
@@ -94,6 +95,7 @@ export const slideStateTrigger = trigger('slideState', [
     }))
   ])
 ]);
+
 
 export const listStateTrigger = trigger('listState', [
   transition('* => *', [
