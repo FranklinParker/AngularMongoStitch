@@ -119,7 +119,7 @@ export class MessageService {
         .collection('messages')
         .find({_id: new BSON.ObjectId(message.id)})
         .toArray();
-      console.log('found ', existMessage)
+      console.log('found ', existMessage);
       if (!existMessage || existMessage.length === 0) {
         return {
           success: false,
@@ -170,6 +170,32 @@ export class MessageService {
         }
       };
     }
+  }
+
+  public async reloadMessage(id: string): Promise<Message> {
+    try {
+      const existMessage = await this.mongoDb.db('chat')
+        .collection('messages')
+        .find({_id: new BSON.ObjectId(id)})
+        .toArray();
+      console.log('messages', existMessage);
+      if (existMessage && existMessage.length > 0) {
+        const message = existMessage[0];
+        const transformedMessage = {
+          id: message._id.toString(),
+          message: message.message,
+          creator: message.creator,
+          version: message.version
+        };
+        return transformedMessage;
+      } else {
+        return undefined;
+      }
+
+    } catch (e) {
+      return undefined;
+    }
+
   }
 
 

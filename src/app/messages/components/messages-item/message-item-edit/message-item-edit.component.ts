@@ -37,10 +37,16 @@ export class MessageItemEditComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit(form: NgForm) {
+    this.error = undefined;
     const resp: SaveResponse = await this.messageService.updateMessage(this.message);
     if (!resp.success) {
       this.error = resp.error;
     }
   }
 
+  async onRefreshData() {
+    this.error = undefined;
+    this.message = await this.messageService.reloadMessage(this.message.id);
+    console.log('new message', this.message);
+  }
 }
