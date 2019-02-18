@@ -34,8 +34,8 @@ export class MessagesItemComponent implements OnInit, OnDestroy {
   onDelete() {
     this.dialog.open(ConfirmDialogComponent, {
       data: {message: 'Confirm Delete'},
-      width: '50%',
-      height: '60%',
+      width: '40%',
+      height: '30%',
       disableClose: true
     }).afterClosed().subscribe(data => {
       console.log('data', data);
