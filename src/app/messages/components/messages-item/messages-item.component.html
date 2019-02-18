@@ -8,8 +8,8 @@
        fxLayoutGap="10px">
     <p fxFlex="20%">{{message.creator}} </p>
     <p fxFlex="60%">{{message.message}} </p>
-    <p fxFlex="20%">{{message.version}} </p>
-
+    <p fxFlex="10%">{{message.version}} </p>
+    <button fxFlex="10%" mat-button (click)="onDelete()">Delete</button>
 
   </div>
 

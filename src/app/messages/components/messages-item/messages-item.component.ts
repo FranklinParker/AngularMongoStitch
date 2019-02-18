@@ -3,6 +3,8 @@ import {Subscription} from 'rxjs';
 
 import {Message} from '../../models/message';
 import {MessageService} from '../../services/message.service';
+import {MatDialog} from '@angular/material';
+import {ConfirmDialogComponent} from '../../../shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-messages-item',
@@ -14,7 +16,8 @@ export class MessagesItemComponent implements OnInit, OnDestroy {
   selectedMessageId: string;
   subs: Subscription;
 
-  constructor(private messageService: MessageService) {
+  constructor(private messageService: MessageService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -26,6 +29,17 @@ export class MessagesItemComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+  }
+
+  onDelete() {
+    this.dialog.open(ConfirmDialogComponent, {
+      data: {message: 'Confirm Delete'},
+      width: '50%',
+      height: '60%',
+      disableClose: true
+    }).afterClosed().subscribe(data => {
+      console.log('data', data);
+    });
   }
 
 
