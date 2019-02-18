@@ -33,7 +33,7 @@ export class MessageItemEditComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit(form: NgForm) {
-    this.messageService.updateMessage(this.message);
+    await this.messageService.updateMessage(this.message);
   }
 
 }

@@ -1,6 +1,5 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs';
-import * from
 
 import {Message} from '../../models/message';
 import {MessageService} from '../../services/message.service';

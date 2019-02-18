@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Stitch, RemoteMongoClient} from 'mongodb-stitch-browser-sdk';
 import {Message} from '../models/message';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {BSON} from 'mongodb-stitch-browser-sdk';
+
 
 const blankMessage: Message = {
   message: undefined,
@@ -87,10 +89,14 @@ export class MessageService {
 
   public async updateMessage(message: Message) {
     try {
+      console.log('search id ' + new BSON.ObjectId(message.id));
       const existMessage = await this.mongoDb.db('chat')
-        .collection('messages').find({_id: message.id}).toArray();
+        .collection('messages')
+        .find({_id: new BSON.ObjectId(message.id)})
+        .toArray();
       console.log('found', existMessage);
-      if (existMessage && existMessage['version'] === message.version) {
+      if (existMessage && existMessage.length > 0
+        && existMessage[0]['version'] === message.version) {
         console.log('version match');
       }
     } catch (e) {
