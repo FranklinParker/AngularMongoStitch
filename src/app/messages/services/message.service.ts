@@ -1,19 +1,36 @@
 import {Injectable} from '@angular/core';
 import {Stitch, RemoteMongoClient} from 'mongodb-stitch-browser-sdk';
 import {Message} from '../models/message';
-import {connectableObservableDescriptor} from 'rxjs/internal/observable/ConnectableObservable';
+import {BehaviorSubject, Observable} from 'rxjs';
+
+const blankMessage: Message = {
+  message: undefined,
+  creator: undefined
+
+};
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class MessageService {
   mongoDb: any;
+  private messageSelected: BehaviorSubject<Message> = new BehaviorSubject<Message>(blankMessage);
 
   constructor() {
     this.mongoDb = Stitch.defaultAppClient.getServiceClient(
       RemoteMongoClient.factory,
       'mongodb-atlas'
     );
+  }
+
+  public getSelectedMessageAsObservable(): Observable<Message> {
+    return this.messageSelected.asObservable();
+  }
+
+  public setMessageSelected(message: Message) {
+    this.messageSelected.next(message);
   }
 
   /**
@@ -32,10 +49,10 @@ export class MessageService {
           creator: message.creator,
           version: message.version
         };
+
         transformedMessages.push(transformedMessage);
       });
-
-      return messages;
+      return transformedMessages;
     } catch (err) {
       console.log(err);
     }

@@ -26,10 +26,15 @@ export class MessagesHomeComponent implements OnInit {
 
   async ngOnInit() {
     this.messages = await this.messageService.getMessages();
+    console.log('messages', this.messages);
   }
 
   onSelectMessage(message: Message) {
-    this.selectedMessage = message;
+    if (this.selectedMessage !== message) {
+      this.selectedMessage = message;
+      this.messageService.setMessageSelected(message);
+    }
+
   }
 
   onNewMessageSaved(message: Message) {

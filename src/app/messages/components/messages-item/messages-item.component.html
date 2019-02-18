@@ -10,5 +10,18 @@
     <p fxFlex="60%">{{message.message}} </p>
     <p fxFlex="20%">{{message.version}} </p>
 
+
   </div>
+
+  <div class="div-row" *ngIf="message.id===selectedMessageId">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Edit
+        </mat-expansion-panel-header>
+        <app-message-item-edit></app-message-item-edit>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
 </div>
