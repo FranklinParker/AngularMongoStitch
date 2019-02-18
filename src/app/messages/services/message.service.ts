@@ -17,7 +17,7 @@ const blankMessage: Message = {
 
 
 export class MessageService {
-  mongoDb: any;
+  private mongoDb: any;
   private messageSelected: BehaviorSubject<Message> = new BehaviorSubject<Message>(blankMessage);
 
   constructor() {
