@@ -1,18 +1,54 @@
-:host{
-  min-height: 150px;
-  min-width: 200px;
-}
+
 div{
   display: flex;
   justify-content: center;
   align-content: center;
 }
 
+@media only screen and (max-width: 1400px) {
+  :host {
+    min-height: 130px;
+    min-width: 160px;
+    margin-bottom: 0;
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  :host {
+    min-height: 120px;
+    min-width: 180px;
+    font-size: 80% !important;
+    button{
+      font-size: 80%!important;
+      margin: 1px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  :host {
+    min-height: 100px;
+    min-width: 150px;
+    font-size: 60% !important;
+  }
+  button{
+    font-size: 60%!important;
+    margin: 1px;
+  }
+}
 
 
 .mat-dialog-actions {
+  margin-top: 14%;
   border: #ebebeb 1px solid;
   border-radius: 5px;
-  margin-bottom: -20px;
   background-color: #f0f0f0;
+}
+
+button{
+  border: rgba(19, 136, 129, 0.34) 1px solid;
+  border-radius: 10%;
+  padding: 5px;
 }
