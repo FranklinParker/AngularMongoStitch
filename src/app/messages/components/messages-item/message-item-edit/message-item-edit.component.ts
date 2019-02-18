@@ -17,6 +17,7 @@ import {buttonOverTrigger} from '../../../services/animations';
 export class MessageItemEditComponent implements OnInit, OnDestroy {
   message: Message;
   subs: Subscription;
+  saveButtonOver = false;
 
   constructor(private messageService: MessageService) {
   }
