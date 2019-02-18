@@ -4,3 +4,17 @@
   padding: 20px;
   height: 95%;
 }
+
+.main-panel {
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba(100, 100, 100, 0.7), rgba(100, 100, 100, 0.7)),
+  url(../../../../assets/img/home_background.jpeg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+
+}
