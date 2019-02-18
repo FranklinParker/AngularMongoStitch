@@ -1,0 +1,19 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h4>{{error.title}}</h4>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-container *ngFor="let message of messages">
+        <button mat-button type="button" >
+          <mat-icon>check</mat-icon>
+          {{message}}
+        </button>
+        <button mat-raised-button color="accent"
+                (click)="onReloadData()"
+                *ngIf="versionMismatchError">Refresh Data
+        </button>
+    </ng-container>
+  </mat-expansion-panel>
+</mat-accordion>

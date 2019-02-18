@@ -3,6 +3,8 @@ import {Stitch, RemoteMongoClient} from 'mongodb-stitch-browser-sdk';
 import {Message} from '../models/message';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {BSON} from 'mongodb-stitch-browser-sdk';
+import {SaveResponse} from '../../core/models/saveResponse';
+import {HttpStatusCodes} from '../../core/models/httpstatuses';
 
 
 const blankMessage: Message = {
@@ -30,7 +32,7 @@ export class MessageService {
   }
 
   /**
-   * get all messages
+   * Delete message
    *
    */
   public deleteMessage(id: string) {
@@ -58,6 +60,7 @@ export class MessageService {
   public getMessageDeleteAsObservable(): Observable<string> {
     return this.messageDeleted.asObservable();
   }
+
   /**
    * get all messages
    *
@@ -110,20 +113,62 @@ export class MessageService {
     }
   }
 
-  public async updateMessage(message: Message) {
+  public async updateMessage(message: Message): Promise<SaveResponse> {
     try {
-      console.log('search id ' + new BSON.ObjectId(message.id));
       const existMessage = await this.mongoDb.db('chat')
         .collection('messages')
         .find({_id: new BSON.ObjectId(message.id)})
         .toArray();
-      console.log('found', existMessage);
-      if (existMessage && existMessage.length > 0
-        && existMessage[0]['version'] === message.version) {
-        console.log('version match');
+      console.log('found ', existMessage)
+      if (!existMessage || existMessage.length === 0) {
+        return {
+          success: false,
+          error: {
+            title: 'Record Update failed',
+            error: {
+              code: HttpStatusCodes.HTTP_STATUS_NOT_FOUND_404,
+              message: 'cannot update record not found'
+            }
+          }
+        };
       }
+      if (existMessage[0]['version'] !== message.version) {
+        return {
+          success: false,
+          error: {
+            title: 'Record Update failed',
+            error: {
+              code: HttpStatusCodes.HTTP_STATUS_STALE_DATA_412,
+              message: 'Version mismatch'
+            }
+          }
+        };
+      }
+
+      await this.mongoDb.db('chat')
+        .collection('messages')
+        .updateOne({_id: new BSON.ObjectId(message.id)},
+          {
+            message: message.message,
+            creator: message.creator,
+            version: message.version + 1
+          });
+      return {
+        success: true
+      };
+
     } catch (e) {
       console.log('error updating', e);
+      return {
+        success: false,
+        error: {
+          title: 'Record Update failed',
+          error: {
+            code: 500,
+            message: e.message
+          }
+        }
+      };
     }
   }
 

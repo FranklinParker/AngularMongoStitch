@@ -1,0 +1,5 @@
+
+export enum HttpStatusCodes {
+  HTTP_STATUS_STALE_DATA_412 = 412,
+  HTTP_STATUS_NOT_FOUND_404 = 404
+}

@@ -1,0 +1,19 @@
+h4{
+  color: red;
+}
+
+mat-card{
+  width:100%;
+}
+.mat-button{
+  align-content: center;
+  color: red;
+}
+
+mat-panel-title{
+  color: red;
+}
+
+mat-action-row{
+  align-content: center;
+}
