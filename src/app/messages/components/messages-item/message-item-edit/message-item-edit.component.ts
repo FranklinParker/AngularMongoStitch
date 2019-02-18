@@ -46,7 +46,9 @@ export class MessageItemEditComponent implements OnInit, OnDestroy {
 
   async onRefreshData() {
     this.error = undefined;
-    this.message = await this.messageService.reloadMessage(this.message.id);
-    console.log('new message', this.message);
+    const messageTemp = await this.messageService.reloadMessage(this.message.id);
+    if (messageTemp) {
+      this.message = messageTemp;
+    }
   }
 }

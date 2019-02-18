@@ -22,6 +22,7 @@ export class MessagesHomeComponent implements OnInit, OnDestroy {
   messages: Message[] = [];
   selectedMessage: Message;
   subs: Subscription;
+  updateSubs: Subscription;
 
   constructor(private messageService: MessageService) {
   }
@@ -40,10 +41,23 @@ export class MessagesHomeComponent implements OnInit, OnDestroy {
           }
         }
       );
+    this.subs = this.messageService.getMessageUpdatedAsObservable()
+      .subscribe((message: Message) => {
+          if (message) {
+            const idx: number = this.messages.findIndex((mess: Message) =>
+              mess.id === message.id
+            );
+            if (idx > -1) {
+              this.messages.splice(idx, 1, message);
+            }
+          }
+        }
+      );
   }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+    this.updateSubs.unsubscribe();
   }
 
   onSelectMessage(message: Message) {

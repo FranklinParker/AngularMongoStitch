@@ -22,6 +22,7 @@ export class MessageService {
   private mongoDb: any;
   private messageSelected: BehaviorSubject<Message> = new BehaviorSubject<Message>(blankMessage);
   private messageDeleted: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+  private messageUpdated: BehaviorSubject<Message> = new BehaviorSubject<Message>(null);
 
 
   constructor() {
@@ -29,6 +30,14 @@ export class MessageService {
       RemoteMongoClient.factory,
       'mongodb-atlas'
     );
+  }
+
+  /**
+   *
+   *
+   */
+  public getMessageUpdatedAsObservable() {
+    return this.messageUpdated.asObservable();
   }
 
   /**
@@ -153,6 +162,8 @@ export class MessageService {
             creator: message.creator,
             version: message.version + 1
           });
+      message.version++;
+      this.messageUpdated.next(message);
       return {
         success: true
       };
