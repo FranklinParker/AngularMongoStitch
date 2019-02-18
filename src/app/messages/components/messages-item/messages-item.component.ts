@@ -31,14 +31,17 @@ export class MessagesItemComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  onDelete() {
-    this.dialog.open(ConfirmDialogComponent, {
+  async onDelete() {
+    await this.dialog.open(ConfirmDialogComponent, {
       data: {message: 'Confirm Delete'},
       width: '40%',
       height: '30%',
       disableClose: true
-    }).afterClosed().subscribe(data => {
-      console.log('data', data);
+    }).afterClosed().subscribe((confirm: boolean ) => {
+      if (confirm) {
+          this.messageService.deleteMessage(this.message.id);
+
+      }
     });
   }
 

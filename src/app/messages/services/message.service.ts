@@ -19,6 +19,8 @@ const blankMessage: Message = {
 export class MessageService {
   private mongoDb: any;
   private messageSelected: BehaviorSubject<Message> = new BehaviorSubject<Message>(blankMessage);
+  private messageDeleted: BehaviorSubject<string> = new BehaviorSubject<string>(null);
+
 
   constructor() {
     this.mongoDb = Stitch.defaultAppClient.getServiceClient(
@@ -26,6 +28,24 @@ export class MessageService {
       'mongodb-atlas'
     );
   }
+
+  /**
+   * get all messages
+   *
+   */
+  public deleteMessage(id: string) {
+
+    const result = this.mongoDb.db('chat')
+      .collection('messages').deleteOne({_id: new BSON.ObjectId(id)})
+      .then((res: { deletedCount: number }) => {
+        this.messageDeleted.next(id);
+      })
+      .catch(err => {
+        alert('Delete Failed');
+      });
+
+  }
+
 
   public getSelectedMessageAsObservable(): Observable<Message> {
     return this.messageSelected.asObservable();
@@ -35,6 +55,9 @@ export class MessageService {
     this.messageSelected.next(message);
   }
 
+  public getMessageDeleteAsObservable(): Observable<string> {
+    return this.messageDeleted.asObservable();
+  }
   /**
    * get all messages
    *
