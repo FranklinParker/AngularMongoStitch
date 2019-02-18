@@ -1,5 +1,6 @@
 <mat-card>
   <mat-card-content>
+    <app-error-message *ngIf="error"  [error]="error"></app-error-message>
     <form (submit)="onSubmit(form)"
           fxLayout="column"
           fxLayoutAlign="center center"

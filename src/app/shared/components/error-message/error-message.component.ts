@@ -18,7 +18,7 @@ import { HttpStatusCodes } from '../../../core/models/httpstatuses';
 export class ErrorMessageComponent implements OnInit, OnChanges {
   @Input() error: Error;
   @Output() refreshData = new EventEmitter<void>();
-  messages: string[];
+  messages: string[] = [];
   versionMismatchError = false;
 
   constructor() {}

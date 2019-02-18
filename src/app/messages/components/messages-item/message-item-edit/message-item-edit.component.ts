@@ -5,6 +5,8 @@ import {Subscription} from 'rxjs';
 import {Message} from '../../../models/message';
 import {MessageService} from '../../../services/message.service';
 import {buttonOverTrigger} from '../../../services/animations';
+import {Error} from '../../../../core/models/error';
+import {SaveResponse} from '../../../../core/models/saveResponse';
 
 @Component({
   selector: 'app-message-item-edit',
@@ -18,6 +20,7 @@ export class MessageItemEditComponent implements OnInit, OnDestroy {
   message: Message;
   subs: Subscription;
   saveButtonOver = false;
+  error: Error;
 
   constructor(private messageService: MessageService) {
   }
@@ -34,7 +37,10 @@ export class MessageItemEditComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit(form: NgForm) {
-    await this.messageService.updateMessage(this.message);
+    const resp: SaveResponse = await this.messageService.updateMessage(this.message);
+    if (!resp.success) {
+      this.error = resp.error;
+    }
   }
 
 }

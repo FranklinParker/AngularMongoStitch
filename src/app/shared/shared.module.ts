@@ -19,7 +19,8 @@ import {ErrorMessageComponent} from './components/error-message/error-message.co
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ErrorMessageComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
