@@ -56,8 +56,13 @@ export class MessagesHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subs.unsubscribe();
-    this.updateSubs.unsubscribe();
+    if (this.subs) {
+      this.subs.unsubscribe();
+    }
+    if (this.updateSubs) {
+      this.updateSubs.unsubscribe();
+
+    }
   }
 
   onSelectMessage(message: Message) {
