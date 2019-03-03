@@ -1,3 +1,4 @@
+@import '../../../../colors';
 :host {
   display: block;
   border: 1px solid black;
@@ -6,4 +7,10 @@
   margin: 8px;
   padding: 20px;
   transition: border-color .7s ease-out;
+}
+
+
+.animate-test{
+  margin-left: 10px;
+  color: $color2;
 }
